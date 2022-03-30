@@ -27,13 +27,13 @@ eval "$(direnv hook bash)"
 
 # HSTR configuration - add this to ~/.bashrc
 # alias hh=hstr                    # hh to be alias for hstr
-# export HSTR_CONFIG=hicolor       # get more colors
-# shopt -s histappend              # append new history items to .bash_history
-# export HISTCONTROL=ignorespace   # leading space hides commands from history
-# export HISTFILESIZE=10000        # increase history file size (default is 500)
-# export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
+export HSTR_CONFIG=hicolor       # get more colors
+shopt -s histappend              # append new history items to .bash_history
+export HISTCONTROL=ignorespace   # leading space hides commands from history
+export HISTFILESIZE=10000        # increase history file size (default is 500)
+export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
 # ensure synchronization between bash memory and history file
-# export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export HISTTIMEFORMAT='[%d-%m-%y %H:%M] '
 export XDG_CONFIG_HOME="$HOME"

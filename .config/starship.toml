@@ -15,7 +15,7 @@ disabled = true
 
 [character]
 # symbol = "➜"
-success_symbol = "[➜](bold green)"
+success_symbol = "[❯](bold green)"
 error_symbol = "[✗](bold red)"
 # use_symbol_for_status = true
 
@@ -61,9 +61,14 @@ disabled = false
 
 [openstack]
 format = "on [$symbol$cloud]($style) "
-style = "bold yellow"
+style = "bold red"
 symbol = "  "
 
+# [kubernetes]
+# symbol = "☸ "
+# format = "[$symbol$context]($style) "
+# style = "blue bold"
+# disabled = false
 
 [python]
 # symbol = "🐍 "
@@ -81,15 +86,17 @@ disabled = false
 
 # [docker_context]
 # symbol = " "
-# 
-# [aws]
-# symbol = " (AWS) "
-# 
+#
+[aws]
+symbol = " (AWS) "
+format = "on [$symbol($profile )($region )($duration)]($style)"
+disabled = false
+#
 # [java]
 # symbol = " "
-# 
+#
 # [nix_shell]
 # symbol = " "
-# 
+#
 # [php]
 # symbol = " "

@@ -18,7 +18,7 @@ alias gl='git log --pretty=format:"%C(yellow)%h%Creset - %C(green)%ad%Creset | %
 alias gll='git log --decorate --graph --oneline -n 30'
 # os_select='export OS_CLOUD=$(cat ~/.config/openstack/clouds.yaml | yq '.clouds | keys' | fzf | awk '{print $2}')'
 # alias os-select=eval $os_select
-alias dotfiles='git --git-dir=$HOME/dotfiles --work-tree=$HOME'   
+alias dotfiles='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
 
 eval "$(starship init bash)"
@@ -44,6 +44,9 @@ export XDG_CONFIG_HOME="$HOME"
 
 export PATH="/usr/local/opt/node@16/bin:$PATH"
 export PATH="$HOME/.emacs.d/bin:$PATH"
+
+# Krew Plugin Manager
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 # import my own functions
 for file in "$HOME"/functions/*; do
@@ -187,4 +190,3 @@ alias gupav='git pull --rebase --autostash -v'
 alias gupv='git pull --rebase -v'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
-

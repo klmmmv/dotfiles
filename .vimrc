@@ -53,6 +53,17 @@ let g:NERDTreeStatusline = "%{SimpleWindowNumber()}"
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_fixers = {
+\    '*': ['remove_trailing_lines', 'trim_whitespace'],
+\    'python': ['black'],
+\}
+let g:ale_linters = {
+\    'python': ['flake8'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_linters = {
+\    'python': ['flake8'],
+\}
 
 " Vim-Airline
 "
@@ -99,5 +110,3 @@ nmap <C-F>w <Plug>CtrlSFCwordPath
 " ----------------
 
 autocmd FileType yaml,sh setlocal ts=2 sts=2 sw=2 expandtab
-
-

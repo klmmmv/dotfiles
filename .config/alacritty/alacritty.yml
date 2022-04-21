@@ -18,7 +18,7 @@ shell:
   args:
     - -l
     - -c
-    - "trap \"tmux detach\" EXIT;tmux a -t 0 || tmux"
+    - "trap \"tmux detach\" EXIT;tmux"
 # Font configuration
 font:
   # Normal (roman) font face

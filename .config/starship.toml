@@ -1,7 +1,7 @@
 add_newline = false
 
 format = """
-$directory$git_branch$openstack$python
+$directory$git_branch$python$openstack$kubernetes$env_var
 $character"""
 
 [package]
@@ -30,6 +30,9 @@ truncate_to_repo = true
 style = "bold cyan"
 disabled = false
 read_only = " "
+
+[env_var.CC_ENV]
+style = "bold purple"
 
 [git_branch]
 symbol = " "
@@ -60,15 +63,15 @@ disabled = false
 disabled = false
 
 [openstack]
-format = "on [$symbol$cloud]($style) "
+format = " [$symbol$cloud]($style) "
 style = "bold red"
 symbol = "  "
 
-# [kubernetes]
-# symbol = "☸ "
-# format = "[$symbol$context]($style) "
-# style = "blue bold"
-# disabled = false
+[kubernetes]
+symbol = "☸ "
+format = "[$symbol$context - $namespace]($style) "
+style = "blue bold"
+disabled = false
 
 [python]
 # symbol = "🐍 "

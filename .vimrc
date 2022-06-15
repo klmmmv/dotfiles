@@ -10,6 +10,10 @@ colorscheme gruvbox
 set background=dark
 set backspace=indent,eol,start
 
+set noswapfile
+set undofile
+set fsync
+
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 let mapleader = " "
@@ -20,6 +24,11 @@ function! SimpleWindowNumber()
     let str=tabpagewinnr(tabpagenr())
     return str
 endfunction
+
+" som stuff
+
+nnoremap <Leader>rc :vsplit $MYVIMRC<cr>
+nnoremap <Leader>sv :source $MYVIMRC<cr>
 
 " Bind leader<i> to switch to  window
 
@@ -33,6 +42,13 @@ nnoremap <Leader>7 :7wincmd w<CR>
 nnoremap <Leader>8 :8wincmd w<CR>
 nnoremap <Leader>9 :9wincmd w<CR>
 
+" Resize windows with arrow keys
+
+nnoremap <c-down>  :resize +2<cr>
+nnoremap <c-up>  :resize -2<cr>
+nnoremap <c-left>  :vertical resize -2<cr>
+nnoremap <c-right>  :vertical resize +2<cr>
+
 " Ctrlsf
 " --------
 
@@ -43,7 +59,7 @@ let g:ctrlsf_winsize = '86'
 " Nerdtree
 " --------
 
-autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * NERDTree | wincmd p
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeWinSize = 50
 let g:NERDTreeStatusline = "%{SimpleWindowNumber()}"

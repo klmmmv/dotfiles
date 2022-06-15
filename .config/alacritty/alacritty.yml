@@ -14,7 +14,7 @@ scrolling:
   #multiplier: 3
 
 shell:
-  program: /bin/bash
+  program: /usr/local/bin/bash
   args:
     - -l
     - -c
@@ -88,7 +88,7 @@ key_bindings:
   #  - { key: 26,      mods: Alt, chars: "|" }
   #    # - { key: 45,      mods: Alt, chars: "~" }
   #  - { key: 23,      mods: Alt, chars: "[" }
-  #  - { key: 22,      mods: Alt, chars: "]" } 
+  #  - { key: 22,      mods: Alt, chars: "]" }
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }

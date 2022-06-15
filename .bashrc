@@ -1,6 +1,7 @@
 set -o vi
 export EDITOR=vim
 export GREP_OPTIONS=' --color=auto'
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 alias es='exa -G --icons'
 # alias ll='exa -laG --icons'
@@ -43,8 +44,7 @@ export XDG_CONFIG_HOME="$HOME"
 # if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
 
 export PATH="/usr/local/opt/node@16/bin:$PATH"
-export PATH="$HOME/.emacs.d/bin:$PATH"
-
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # Krew Plugin Manager
 export PATH="${PATH}:${HOME}/.krew/bin"
 
@@ -53,9 +53,20 @@ for file in "$HOME"/functions/*; do
   source "$file"
 done
 
+# import bash completion scripts
+for file in "$HOME"/.config/completion/*; do
+  source "$file"
+done
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+## ARTIFACTORY helper scripts ##
+export PATH="$HOME/workspace/doc-internal/operator/services/artifactory/docs-on-call/scripts/:$PATH"
+source "$HOME"/workspace/doc-internal/operator/services/artifactory/docs-on-call/scripts/completions_af-arbitrary-command.sh
+source "$HOME"/workspace/doc-internal/operator/services/artifactory/docs-on-call/scripts/completions_restart-af-services.sh
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 ## BMW specific stuff
 
@@ -190,3 +201,8 @@ alias gupav='git pull --rebase --autostash -v'
 alias gupv='git pull --rebase -v'
 alias gwch='git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
+
+
+# Private
+
+export PLAYDATE_SDK_PATH=~/Developer/PlaydateSDK/

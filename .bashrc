@@ -6,6 +6,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 alias es='exa -G --icons'
 # alias ll='exa -laG --icons'
 alias ll='exa -alm --no-user --no-permissions --bytes --git --time-style long-iso --group-directories-first --icons'
+alias etree='ll --tree --level=2'
 
 alias lt='exa -laGT --icons'
 alias cal='gcal --starting-day=1'
@@ -206,3 +207,5 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 # Private
 
 export PLAYDATE_SDK_PATH=~/Developer/PlaydateSDK/
+
+kubectl config unset current-context > /dev/null

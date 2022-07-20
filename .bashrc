@@ -20,11 +20,12 @@ alias gl='git log --pretty=format:"%C(yellow)%h%Creset - %C(green)%ad%Creset | %
 alias gll='git log --decorate --graph --oneline -n 30'
 # os_select='export OS_CLOUD=$(cat ~/.config/openstack/clouds.yaml | yq '.clouds | keys' | fzf | awk '{print $2}')'
 # alias os-select=eval $os_select
-alias dotfiles='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias gitdot='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
 
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
+eval "$(jenv init -)"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # HSTR configuration - add this to ~/.bashrc
@@ -48,6 +49,7 @@ export PATH="/usr/local/opt/node@16/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # Krew Plugin Manager
 export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/bin:$PATH"
 
 # import my own functions
 for file in "$HOME"/functions/*; do
@@ -62,8 +64,8 @@ done
 
 ## ARTIFACTORY helper scripts ##
 export PATH="$HOME/workspace/doc-internal/operator/services/artifactory/docs-on-call/scripts/:$PATH"
-source "$HOME"/workspace/doc-internal/operator/services/artifactory/docs-on-call/scripts/completions_af-arbitrary-command.sh
-source "$HOME"/workspace/doc-internal/operator/services/artifactory/docs-on-call/scripts/completions_restart-af-services.sh
+source "$HOME"/workspace/wmb/doc-internal/operator/services/artifactory/docs-on-call/scripts/completions_af-arbitrary-command.sh
+source "$HOME"/workspace/wmb/doc-internal/operator/services/artifactory/docs-on-call/scripts/completions_restart-af-services.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -209,3 +211,5 @@ alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commi
 export PLAYDATE_SDK_PATH=~/Developer/PlaydateSDK/
 
 kubectl config unset current-context > /dev/null
+
+source /Users/michael.klammer/.bash_completions/doit.sh

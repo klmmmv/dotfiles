@@ -9,6 +9,7 @@ set hlsearch
 colorscheme gruvbox
 set background=dark
 set backspace=indent,eol,start
+set colorcolumn=80
 
 set noswapfile
 set undofile

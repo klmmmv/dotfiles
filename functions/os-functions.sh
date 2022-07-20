@@ -1,5 +1,5 @@
 os_select(){
-        export HTTPS_PROXY=http://localhost:5555 HTTP_PROXY=http://localhost:5555 ALL_PROXY=http://localhost:5555
+        # export HTTPS_PROXY=http://localhost:5555 HTTP_PROXY=http://localhost:5555 ALL_PROXY=http://localhost:5555
         export OS_CLOUD=$(cat ~/.config/openstack/clouds.yaml | yq '.clouds | keys' | fzf | awk '{print $2}')
         export OS_CREDENTIALS_DIR=/Users/michael.klammer/.config/openstack
 }

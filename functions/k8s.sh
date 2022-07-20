@@ -1,6 +1,7 @@
 k_select(){
-#  export KUBECONFIG=~/.kube/generated/$(ls ~/.kube/generated | fzf)
-  kubectl config use-context $(ls $HOME/.kube/generated | fzf)
+  export MY_KUBE_CONFIG="$(ls $HOME/.kube/generated | fzf)"
+  export KUBECONFIG=~/.kube/generated/$MY_KUBE_CONFIG
+  kubectl config use-context "$MY_KUBE_CONFIG"
   kubectl config set-context --current --namespace=default
 }
 

@@ -26,7 +26,7 @@ jira_open(){
     case $1 in
       -h | --help)
         jira_help
-        exit 0
+        shift
         ;;
       --ccdev)
         CCDEV=0
@@ -44,13 +44,14 @@ jira_open(){
         ;;
      esac
   done
-  echo "$TICKETS" | tr ',' '\n'
-  # for ticket in $(echo "$TICKETS" | tr ',' '\n');
-  # do
-  #   if [[ -n $CCDEV ]]; then
-  #     printf "opening %sCCDEV-%s" "$ccdev_url" "$ticket"
-  #   elif [[ -n $CCSD ]]; then
-  #     printf "opening %sCCDEV-%s" "$ccsd_url" "$ticket"
-  #   elif [[ $ticket
-  # done
+  for ticket in $(echo "$TICKETS" | tr ',' '\n');
+  do
+    if [[ -n $CCDEV || $ticket =~ (CCDEV-)[0-9]{3,} ]]; then
+      printf "opening %s%s" "$ccdev_url" "$ticket"
+      open "${ccdev_url}${ticket}"
+    elif [[ -n $CCSD || $ticket =~ (CCSD-)[0-9]{3,} ]]; then
+      printf "opening %s%s" "$ccsd_url" "$ticket"
+      open "${ccsd_url}${ticket}"
+    fi
+  done
 }

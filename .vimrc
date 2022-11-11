@@ -12,7 +12,6 @@ set backspace=indent,eol,start
 set colorcolumn=80
 
 set noswapfile
-set undofile
 set fsync
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -29,7 +28,7 @@ endfunction
 " som stuff
 
 nnoremap <Leader>rc :vsplit $MYVIMRC<cr>
-nnoremap <Leader>sv :source $MYVIMRC<cr>
+nnoremap <Leader>sr :source $MYVIMRC<cr>
 
 " Bind leader<i> to switch to  window
 
@@ -44,6 +43,7 @@ nnoremap <Leader>8 :8wincmd w<CR>
 nnoremap <Leader>9 :9wincmd w<CR>
 
 " Resize windows with arrow keys
+" does not work
 
 nnoremap <c-down>  :resize +2<cr>
 nnoremap <c-up>  :resize -2<cr>
@@ -96,8 +96,8 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.linenr = '☰'
+" let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
 
 function! WindowNumber(...)
@@ -127,3 +127,7 @@ nmap <C-F>w <Plug>CtrlSFCwordPath
 " ----------------
 
 autocmd FileType yaml,sh setlocal ts=2 sts=2 sw=2 expandtab
+
+com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
+
+nnoremap = :FormatXML<Cr>

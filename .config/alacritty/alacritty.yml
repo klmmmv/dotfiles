@@ -23,7 +23,7 @@ shell:
 font:
   # Normal (roman) font face
   size: 14.0
-  use_thin_strokes: true
+  # use_thin_strokes: true
   normal:
     # Font family
     #
@@ -196,4 +196,4 @@ key_bindings:
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                      }
   - { key: NumpadEnter,             chars: "\n"                              }
   # Fixes Ctrl+Space problem in MacOs
-  - { key: Space,   mods: Control, chars: "\x00" }
+ # - { key: Space,   mods: Control, chars: "\x00" }

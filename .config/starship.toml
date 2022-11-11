@@ -1,17 +1,17 @@
 add_newline = false
 
 format = """
-$directory$git_branch$python$openstack$kubernetes$env_var
+$cmd_duration$directory$git_branch$python$openstack$kubernetes$env_var
 $character"""
 
-[package]
-disabled = true
-
-[battery]
-disabled = true
-
-[nodejs]
-disabled = true
+# [package]
+# disabled = true
+#
+# [battery]
+# disabled = true
+#
+# [nodejs]
+# disabled = true
 
 [character]
 # symbol = "➜"
@@ -20,8 +20,12 @@ error_symbol = "[✗](bold red)"
 # use_symbol_for_status = true
 
 [cmd_duration]
-min_time = 500
-# prefix = "tooks "
+format = "took [$duration]($style) "
+style = "bold yellow"
+disabled = false
+show_notifications = true
+min_time_to_notify = 20_000
+notification_timeout = 15_000
 
 [directory]
 truncation_length = 6

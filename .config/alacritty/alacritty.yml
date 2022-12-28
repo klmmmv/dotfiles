@@ -18,7 +18,8 @@ shell:
   args:
     - -l
     - -c
-    - "trap \"tmux detach\" EXIT;tmux"
+    - "tmux"
+    # - "trap \"tmux detach\" EXIT;tmux"
 # Font configuration
 font:
   # Normal (roman) font face
@@ -196,4 +197,5 @@ key_bindings:
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                      }
   - { key: NumpadEnter,             chars: "\n"                              }
   # Fixes Ctrl+Space problem in MacOs
- # - { key: Space,   mods: Control, chars: "\x00" }
+  # - { key: Space,  mods: Control, chars: "\x00" }
+  #- { key: J,  mods: Control, chars: "\x00" }

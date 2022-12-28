@@ -27,6 +27,7 @@ endfunction
 
 " som stuff
 
+nnoremap <C-ü> <C-[>
 nnoremap <Leader>rc :vsplit $MYVIMRC<cr>
 nnoremap <Leader>sr :source $MYVIMRC<cr>
 
@@ -45,10 +46,10 @@ nnoremap <Leader>9 :9wincmd w<CR>
 " Resize windows with arrow keys
 " does not work
 
-nnoremap <c-down>  :resize +2<cr>
-nnoremap <c-up>  :resize -2<cr>
-nnoremap <c-left>  :vertical resize -2<cr>
-nnoremap <c-right>  :vertical resize +2<cr>
+nnoremap <C-down>  :resize +2<cr>
+nnoremap <C-up>  :resize -2<cr>
+nnoremap <C-left>  :vertical resize -2<cr>
+nnoremap <C-right>  :vertical resize +2<cr>
 
 " Ctrlsf
 " --------
